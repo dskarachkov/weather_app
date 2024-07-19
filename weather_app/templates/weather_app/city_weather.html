@@ -1,0 +1,17 @@
+{% if weather_data %}
+    <h1>{{ weather_data.city }}</h1>
+    <p>({{ weather_data.lat }}, {{ weather_data.lon }})</p>
+    <h2>{{ weather_data.temperature }}°C</h2>
+{% endif %}
+
+{% if daily_forecasts %}
+    <h2>Прогноз погоды на 7 дней</h2>
+    <div class="forecast-container">
+        {% for forecast in daily_forecasts %}
+            <div class="forecast">
+                <h3>{{ forecast.day }}</h3>
+                <p>{{ forecast.min_temp }}°C - {{ forecast.max_temp }}°C</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
