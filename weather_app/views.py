@@ -31,7 +31,7 @@ def fetch_weather_and_forecast(city, current_weather_url):
     try:
         lat, lon = location.latitude, location.longitude
     except AttributeError:
-        return None
+        return None, None
     response = requests.get(current_weather_url.format(lat, lon)).json()
 
     weather_data = {
